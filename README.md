@@ -5,4 +5,5 @@ Since it's nearly time for Advent of Code 2024, and I'm keen to get a quick tast
 https://adventofcode.com/2023
 
 1. "trebuchet" - https://adventofcode.com/2023/day/1 - completed in ruby
+1. "cube conundrum" - https://adventofcode.com/2023/day/2 - completed in python
 
