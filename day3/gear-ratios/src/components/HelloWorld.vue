@@ -10,8 +10,6 @@ defineProps<{
     <h3>
       <p>Day 3 of <a href="https://adventofcode.com/2023">advent of code</a>. Since the point is to be learning some new frameworks and languages I've created
       a vue app just to add a small amount of frippery around the solution! Leaving most of the basic vite app template in place though.</p>
-      <a href="https://vite.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
     </h3>
   </div>
 </template>
