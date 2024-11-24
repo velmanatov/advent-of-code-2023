@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue';
+import HelloWorld from './components/Blurb.vue';
 import GearRatiosSolver from './components/GearRatiosSolver.vue';
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+    <v-icon icon="mdi-cog" class="logo"/>
     <div class="wrapper">
       <HelloWorld msg="Gear Ratios" />
     </div>
@@ -34,6 +34,8 @@ header {
 
   .logo {
     margin: 0 2rem 0 0;
+    font-size: 10rem;
+    color: aquamarine
   }
 
   header .wrapper {
