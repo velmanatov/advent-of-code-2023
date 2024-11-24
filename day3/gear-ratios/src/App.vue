@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import HelloWorld from './components/Blurb.vue';
+import Blurb from './components/Blurb.vue';
 import GearRatiosSolver from './components/GearRatiosSolver.vue';
 </script>
 
@@ -7,7 +7,7 @@ import GearRatiosSolver from './components/GearRatiosSolver.vue';
   <header>
     <v-icon icon="mdi-cog" class="logo"/>
     <div class="wrapper">
-      <HelloWorld msg="Gear Ratios" />
+      <Blurb msg="Gear Ratios" />
     </div>
   </header>
   <main>
