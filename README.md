@@ -6,5 +6,5 @@ Since it's nearly time for Advent of Code 2024, and I'm keen to get a quick tast
 
 1. ["trebuchet"](https://adventofcode.com/2023/day/1) - completed in ruby. Part two took a while due to overlooking the need for lookahead in a regular expression!
 2. ["cube conundrum"](https://adventofcode.com/2023/day/2) - completed in python. More straightfoward than day 1 thankfully!
-3. ["gear ratios"](https://adventofcode.com/2023/day/3) - created an (unnecessary) vue app for this and solved in typescript!
+3. ["gear ratios"](https://adventofcode.com/2023/day/3) - created an (unnecessary) [vue app](https://velmanatov.github.io/advent-of-code-2023-day-3/) for this and solved in typescript!
 4. ["scratchcards"](https://adventofcode.com/2023/day/3) - solving in go
