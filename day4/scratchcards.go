@@ -12,6 +12,8 @@ import (
 // day 4 part 1 sets a task of parsing a set of lines. On one side is a set of winning numbers. On the other a set of "my" numbers
 // the first match between "my" numbers and the winning one makes the card worth 1 point and each match after the first doubles the point value of that card.
 // i.e. the score is basically two to the power of the number of matching numbers
+// Part 2 changes this up so that each line you count the "winning numbers" - n. You then get an extra copy of the n next cards. This happens iteratively for all
+// original cards and card won along the way. Count up the total number of cards at the end.
 func main() {
 	inputText, err := os.ReadFile("input.txt")
 	if err != nil {
@@ -20,16 +22,34 @@ func main() {
 
 	lines := strings.Split(string(inputText), "\n")
 
-	score := 0
+	scorePart1 := 0
+	cardNumWinningNumbersMap := make(map[int]int)
 
 	for i := 0; i < len(lines); i++ {
-		score += getLineScore(lines[i])
+		cardScore, numWinning := getLineScore(lines[i])
+		scorePart1 += cardScore
+
+		numCopiesOfThisCard := cardNumWinningNumbersMap[i] + 1
+
+		// keep track of number of extra copies of following cards we have won (puzzle rules suggest we should never get index out of bounds at the end)
+		for j := 1; j <= numWinning; j++ {
+			cardNumWinningNumbersMap[i + j] = cardNumWinningNumbersMap[i + j] + numCopiesOfThisCard
+		}
 	}
 
-	fmt.Println(score)
+	// we know we have at least one copy of all cards (so min score is number of lines in the file)
+	scorePart2 := len(lines)
+	// now add up all of extra copies we have won to get the answer for part 2 of the puzzle
+	for i := 0; i < len(lines); i++ {
+		scorePart2 += cardNumWinningNumbersMap[i];
+	}
+
+	fmt.Println(scorePart1)
+	fmt.Println(scorePart2)
 }
 
-func getLineScore(line string) int {
+// Gets the line score for part 1 of the puzzle and the number of macthes for part 2
+func getLineScore(line string) (int, int) {
 	lineScore := 0
 	// stripping the beginning of the string
 	line = line[strings.Index(line, ":")+1:]
@@ -51,13 +71,12 @@ func getLineScore(line string) int {
 	// score for a given "card" is basically 2 ^ the number of matched numbers
 	if matches > 0 {
 		lineScore += int(math.Pow(2, float64(matches-1)))
-
 	}
 
-	return lineScore
+	return lineScore, matches;
 }
 
-// SliceContains returns true if s contains v.
+// SliceContains returns true if stringValues contains value.
 func SliceContains(stringValues []string, value string) bool {
 	for _, strVal := range stringValues {
 		if strVal == value {
